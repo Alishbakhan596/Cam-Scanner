@@ -14,10 +14,11 @@ class RecognizerScreen extends StatefulWidget {
 
 class _RecognizerScreenState extends State<RecognizerScreen> {
   late TextRecognizer textRecognizer;
+
   @override
   void initState() {
     super.initState();
-    final textRecognizer = TextRecognizer(script: TextRecognitionScript.latin);
+    textRecognizer = TextRecognizer(script: TextRecognitionScript.latin);
     doTextRecognization();
   }
 
@@ -64,41 +65,34 @@ class _RecognizerScreenState extends State<RecognizerScreen> {
             children: [
               Image.file(this.widget.image),
               Card(
-                color: Colors.grey.shade300,
-                margin: EdgeInsets.all(10),
-                child: Column(
-                  children: [
-                    Container(
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.document_scanner,
-                              color: Colors.white,
-                            ),
-                            Text(
-                              "Results",
-                              style:
-                                  TextStyle(fontSize: 10, color: Colors.white),
-                            ),
-                            Icon(
-                              Icons.copy,
-                              color: Colors.white,
-                            ),
-                          ],
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  color: Colors.white,
+                  margin: EdgeInsets.all(10),
+                  child: Column(
+                    children: [
+                      Container(
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Row(
+                            children: [
+                              Icon(Icons.document_scanner, color: Colors.white),
+                              Text(
+                                "Results",
+                                style: TextStyle(
+                                    fontSize: 10, color: Colors.white),
+                              ),
+                              Icon(Icons.copy, color: Colors.white),
+                            ],
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          ),
                         ),
+                        color: Colors.blueAccent,
                       ),
-                      color: Colors.blueAccent,
-                    ),
-                    Text(
-                      results,
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ],
-                ),
-              ),
+                      Text(
+                        results,
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ],
+                  ))
             ],
           ),
         ),
